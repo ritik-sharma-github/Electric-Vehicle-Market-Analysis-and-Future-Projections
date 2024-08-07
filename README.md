@@ -77,21 +77,16 @@ plt.figure(figsize=(20,18))
 sns.heatmap(df1.isnull(), yticklabels=False, cmap='viridis')
 
 fill the null values of County, City and Postal Code column with the mode of County Column, City Column and Postal Code column respectively. Using the mean, mode, fill, drop method in Pandas, we can fill the missing values.
-# In[18]:
 
 
 df1['County'].fillna(df1['County'].mode()[0], inplace=True)
 
-
-# In[19]:
 
 
 # Use mean of Legislative District column to fill the null values of Legislative District Column.
 
 df1['Legislative District'].fillna(df1['Legislative District'].mean(),inplace =True)
 
-
-# In[20]:
 
 
 # Using the forwardfill and backwardfill method in Pandas, we can fill all the rows with missing values
@@ -100,58 +95,40 @@ df1['Electric Utility'].fillna('ffill',inplace =True)
 df1['Postal Code'].fillna('bfill',inplace =True)
 
 
-# In[21]:
-
 
 # Assuming 'Electric Range' is the column name
 df1 = df1[df1['Electric Range'] != 0]
 
-
-# In[22]:
 
 
 # Assuming 'Base MSRP' is the column name
 df1 = df1[df1['Base MSRP'] != 0]
 
 
-# In[23]:
-
 
 df1.isnull().sum()
 
-
-# In[24]:
 
 
 df1['Electric Range'].unique()
 
 
-# In[25]:
-
 
 df1['Model'].unique()
 
-
-# In[26]:
 
 
 df1['Legislative District'].unique()
 
 
-# In[27]:
-
 
 df1['Make'].unique()
 
-
-# In[28]:
 
 
 df1["Electric Range"].replace(0, pd.NA, inplace=True)
 df1["Legislative District"].replace(0, pd.NA, inplace=True)
 
-
-# In[29]:
 
 
 print("\nCleaned Dataset:")
@@ -159,8 +136,6 @@ df1.head()
 
 
 # #### Label Encoding for categorical variables with ordinality
-
-# In[30]:
 
 
 import pandas as pd
@@ -180,7 +155,6 @@ df1.head()
 
 # ### Feature Engineering:
 
-# In[31]:
 
 
 import pandas as pd
@@ -195,7 +169,6 @@ df1['Vehicle Age'] = current_year - df1['Model Year']
 df1.head()
 
 
-# In[32]:
 
 
 # 2. Create a binary feature indicating if the vehicle is a luxury brand
@@ -206,7 +179,6 @@ df1['Is Luxury Brand'] = df1['Make'].isin(luxury_brands).astype(int)
 df1.head()
 
 
-# In[33]:
 
 
 df1
@@ -214,14 +186,12 @@ df1
 
 # ### Outlier Detection and Handling.
 
-# In[34]:
 
 
 # Save the DataFrame to a CSV file
 df1.to_csv('clean_dataset.csv', index=False)
 
 
-# In[35]:
 
 
 import os
@@ -232,13 +202,11 @@ current_directory = os.getcwd()
 print("Current Directory:", current_directory)
 
 
-# In[36]:
 
 
 df2=pd.read_csv("C:/Ritik Sharma/VIT  2nd SEMESTER/EDA J PROJECT/clean_dataset.csv")
 
 
-# In[37]:
 
 
 # Visual Inspection - Histograms
@@ -252,7 +220,6 @@ plt.xticks(rotation=30)
 plt.show()
 
 
-# In[38]:
 
 
 import pandas as pd
@@ -290,14 +257,12 @@ print("Potential Outliers based on Z-scores:")
 print(outliers_zscore_pd)
 
 
-# In[39]:
 
 
 print("\nPotential Outliers based on IQR:")
 print(outliers_iqr_pd)
 
 
-# In[40]:
 
 
 # Calculate the first quartile (Q1)
@@ -317,7 +282,6 @@ print("Lower bound for outliers:", lower_bound)
 print("Upper bound for outliers:", upper_bound)
 
 
-# In[41]:
 
 
 # Merge outlier detection results
@@ -337,7 +301,6 @@ print("Merged Outliers:")
 print(merged_outliers)
 
 
-# In[42]:
 
 
 import matplotlib.pyplot as plt
@@ -360,7 +323,6 @@ for column in features_for_prediction:
         plt.show()
 
 
-# In[43]:
 
 
 import matplotlib.pyplot as plt
@@ -382,7 +344,6 @@ for column in features_for_prediction:
         plt.show()
 
 
-# In[44]:
 
 
 from sklearn.neighbors import NearestNeighbors
@@ -400,7 +361,6 @@ outlier_scores = knn_outlier_detection(df2)
 outlier_scores
 
 
-# In[45]:
 
 
 # Step 2: Dendrogram-based outlier detection
@@ -420,7 +380,6 @@ dendrogram_outlier_detection(df2)
 # You can further analyze the dendrogram to identify potential outliers visually.
 
 
-# In[46]:
 
 
 # Step 1: Define KNN-based outlier detection function
@@ -460,7 +419,6 @@ for column in columns_of_interest:
     plt.show()
 
 
-# In[47]:
 
 
 # Step 1: Define KNN-based outlier detection function
@@ -498,7 +456,6 @@ for column in columns_of_interest:
     plt.show()
 
 
-# In[48]:
 
 
 # Distribution of Electric Vehicles Types.
@@ -508,7 +465,6 @@ ev_types.columns = (["Electric Vehicle Type", "Number Of Vehicles"])
 ev_types
 
 
-# In[49]:
 
 
 figure, axes = plt.subplots(1, 2, figsize=(14, 6))
@@ -532,7 +488,6 @@ axes[1].pie(sizes1, labels=labels1, autopct='%0.2f%%', shadow=True, explode=expl
 plt.show()
 
 
-# In[50]:
 
 
 # Count of Cars by Make.
@@ -545,7 +500,6 @@ plt.ylabel('Count')
 plt.show()
 
 
-# In[51]:
 
 
 import matplotlib.pyplot as plt
@@ -610,8 +564,6 @@ for feature in features:
         plt.show()
 
 
-# In[52]:
-
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -646,8 +598,6 @@ for i, feature in enumerate(features):
 plt.tight_layout()
 plt.show()
 
-
-# In[53]:
 
 
 import matplotlib.pyplot as plt
@@ -684,8 +634,6 @@ for i, feature in enumerate(features):
 plt.tight_layout()
 plt.show()
 
-
-# In[54]:
 
 
 import dash
@@ -893,13 +841,11 @@ pca_df = pd.DataFrame(data=pca_result, columns=['PCA1', 'PCA2', 'PCA3', 'PCA4'])
 print(pca_df.head())  # Display the transformed data
 
 
-# In[57]:
 
 
 pca_df
 
 
-# In[58]:
 
 
 # Plotting the PCA results
@@ -911,7 +857,6 @@ plt.ylabel('Principal Component 2')
 plt.show()
 
 
-# In[59]:
 
 
 import seaborn as sns
@@ -922,7 +867,6 @@ plt.suptitle('Pairplot of PCA Components', y=1.02)
 plt.show()
 
 
-# In[60]:
 
 
 import seaborn as sns
@@ -938,7 +882,6 @@ plt.title('Correlation Heatmap of PCA Components')
 plt.show()
 
 
-# In[61]:
 
 
 import pandas as pd
@@ -966,7 +909,6 @@ print("Correlation Matrix between Principal Components:")
 pca_corr
 
 
-# In[62]:
 
 
 # Noise Reduction:
@@ -982,7 +924,6 @@ plt.title('Explained Variance Ratio by Number of Components')
 plt.show()
 
 
-# In[63]:
 
 
 # visualization
@@ -1008,13 +949,11 @@ ax.set_title('PCA Visualization (3D)')
 plt.show()
 
 
-# In[64]:
 
 
 # Feature Selection
 
 Filter Method (Correlation Coefficient and Chi-square Test):
-# In[65]:
 
 
 import pandas as pd
@@ -1036,7 +975,6 @@ X = df2[['Model Year', 'Make', 'Electric Range', 'Base MSRP', 'Legislative Distr
 y = df2['Clean Alternative Fuel Vehicle (CAFV) Eligibility']
 
 
-# In[66]:
 
 
 # Split data into training and testing sets
@@ -1064,7 +1002,6 @@ print("Accuracy with selected features:", accuracy)
 print("Selected Features:", X.columns[k_best.get_support()])
 
 
-# In[67]:
 
 
 import pandas as pd
@@ -1092,7 +1029,6 @@ plt.ylabel('Distance')
 plt.show()
 
 
-# In[68]:
 
 
 import pandas as pd
