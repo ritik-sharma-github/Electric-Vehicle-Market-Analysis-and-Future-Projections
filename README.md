@@ -1,6 +1,5 @@
 ## Data-Driven Insights into Electric Vehicle Market Dynamics and Future Projections
 
-### ABSTRACT
 
 Exploratory Data Analysis (EDA) serves as the foundational step in comprehensively understanding datasets, delving into their complexities to reveal key characteristics, patterns, and anomalies. Employing a combination of visualizations and statistical methods, EDA provides insights within the data, fostering a deeper understanding without being constrained by predefined hypotheses. This iterative process not only facilitates the discovery of potential outcomes but also plays a pivotal role in informing the development of machine learning models by providing valuable insights into data behavior and relationships.
 
