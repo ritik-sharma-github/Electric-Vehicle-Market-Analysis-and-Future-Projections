@@ -1,10 +1,4 @@
 
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -13,52 +7,21 @@ import plotly.express as px
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression as LR
 
-
-# ### Step 1: Preparation and Analyzing the Dataset.
-
-# In[2]:
+Step 1: Preparation and Analyzing the Dataset.
 
 
 df = pd.read_csv("C:/Ritik Sharma/VIT  2nd SEMESTER/EDA J PROJECT/Electric_Vehicle_Population_Data.csv")
-
-
-# In[3]:
-
-
 df
 
 
-# In[4]:
-
-
 df1 = df.drop(columns=['VIN (1-10)', 'City', 'State', 'DOL Vehicle ID', 'Vehicle Location', '2020 Census Tract'])
-
-
-# In[5]:
-
-
 df1
 
 
-# In[6]:
-
-
 len(df1.columns)
-
-
-# In[7]:
-
-
 df1.shape
-
-
-# In[8]:
-
-
 df1.head()
 
-
-# In[9]:
 
 
 # Unique values of all the columns in the data set.
@@ -70,44 +33,30 @@ def Unique_Values():
 Unique_Values()
 
 
-# In[10]:
-
-
 df1.info()
 
 
-# In[11]:
-
-
-# to view the statistical values of numerical columns
+to view the statistical values of numerical columns
 
 df1.describe().style.background_gradient(cmap='cividis')
 
 
-# ### step 2 : Handling the missing values.
+step 2 : Handling the missing values.
 
-# In[12]:
 
 
 df1.isnull().sum()
 
 
-# In[13]:
 
-
-# to view the missing percentages
+to view the missing percentages
 
 missing_percentages=df1.isna().sum().sort_values(ascending=False)/len(df1)
 missing_percentages
 
 
-# In[14]:
-
 
 missing_percentages[missing_percentages !=1]
-
-
-# In[15]:
 
 
 # To plot the missing percentage of the columns in the data set.
@@ -115,7 +64,6 @@ missing_percentages[missing_percentages !=1]
 missing_percentages[missing_percentages != 1].plot(kind = 'barh')
 
 Legislative District column has the more missing values.
-# In[16]:
 
 
 # Visualize the missing data in percentages using basic numerical equation.
@@ -123,8 +71,6 @@ Legislative District column has the more missing values.
 data_missing = df1.isnull().sum()*100/len(df1)
 data_missing
 
-
-# In[17]:
 
 
 plt.figure(figsize=(20,18))
