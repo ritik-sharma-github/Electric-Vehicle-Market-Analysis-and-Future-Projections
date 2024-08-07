@@ -18,7 +18,7 @@ By leveraging historical production data and predictive modeling techniques, our
 
 The project aims to conduct an in-depth analysis of the annual production count of electric cars, employing Exploratory Data Analysis (EDA) techniques to uncover trends, patterns, and insights. By leveraging historical production data and predictive modeling, the goal is to forecast future trajectories in electric vehicle (EV) manufacturing. The project seeks to address key questions such as the growth rate of EV production, factors influencing production trends, and potential challenges and opportunities in the EV manufacturing landscape. Through this analysis, the project aims to provide valuable insights for stakeholders in the automotive industry and contribute to the ongoing discourse on sustainable transportation initiatives.
 
-### INFORMATION ABOUT THE DATASET
+### INFORMATION ABOUT THE DATASET (unable to upload the dataset bcz the dataset size is greater than 25mb)
 
 The dataset used in this project was obtained from a GitHub repository. It contains information about Battery Electric Vehicles (BEVs) and Plug-in Hybrid Electric Vehicles (PHEVs) registered through the Washington State Department of Licensing (DOL). The dataset likely includes details such as vehicle make, model, year, registration date, and possibly other relevant attributes like vehicle identification number (VIN) and registration status. This dataset is valuable for understanding the current landscape of electric vehicles in Washington state, including trends in adoption, popular vehicle models, and insights into environmental impact and consumer preferences.
 
